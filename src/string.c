@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-void ensure_capacity(String *string, size_t plus_chars) {
+void ensure_capacity(String *string, size_t plus_chars)
+{
     size_t desired_capacity = string->length + plus_chars;
 
     if (string->capacity < desired_capacity) {
@@ -15,17 +16,19 @@ void ensure_capacity(String *string, size_t plus_chars) {
     }
 }
 
-String string_new(str const init) {
+String string_new(str const init)
+{
     size_t len = strlen(init);
     size_t capacity = len + 1;
 
     str ptr = malloc(sizeof(char) * capacity);
     memcpy(ptr, init, capacity);
 
-    return (String){.capacity = capacity, .length = len, .buf = ptr};
+    return (String){ .capacity = capacity, .length = len, .buf = ptr };
 }
 
-void string_pushc(String *str, char c) {
+void string_pushc(String *str, char c)
+{
     ensure_capacity(str, 2);
 
     str->buf[str->length] = c; // push
@@ -34,7 +37,8 @@ void string_pushc(String *str, char c) {
     str->buf[str->length] = '\0';
 }
 
-char string_pop(String *str) {
+char string_pop(String *str)
+{
     str->length--;
     char c = str->buf[str->length];
 
@@ -43,7 +47,8 @@ char string_pop(String *str) {
     return c;
 }
 
-inline void string_drop(String *str) {
+inline void string_drop(String *str)
+{
     str->capacity = 0;
     str->length = 0;
 
