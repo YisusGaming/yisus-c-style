@@ -17,7 +17,7 @@ typedef int64_t i64;
 typedef float f32;
 typedef double f64;
 
-typedef char *const str;
+typedef char *str;
 
 #define null 0
 #define fnptr(fn, ...) void (*fn)(__VA_ARGS__)

@@ -1,4 +1,4 @@
-set(library_includes types.h)
+set(library_includes types.h string.h)
 
 add_library(yisus STATIC)
 target_include_directories(yis PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
