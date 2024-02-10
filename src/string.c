@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2024 Jesús "YisusGaming" Blanco
+ *
+ * string.c : Dynamic string.
+ */
+
 #include "dynstr.h"
 #include <stdlib.h>
 #include <string.h>

@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2024 Jesús "YisusGaming" Blanco
+ *
+ * types.h : Type definitions for your code.
+ */
+
 #ifndef TYPES_H
 #define TYPES_H
 

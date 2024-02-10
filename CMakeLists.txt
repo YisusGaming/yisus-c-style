@@ -4,3 +4,4 @@ project(YisusCStyle VERSION 1.0.0 LANGUAGES C)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(src) # library + includes sources and installs
+add_subdirectory(src/tools) # CLI tools + installs

@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2024 Jesús "YisusGaming" Blanco
+ *
+ * dynstr.h : Dynamic string.
+ */
+
 #ifndef YISUS_STRING_H
 #define YISUS_STRING_H
 
