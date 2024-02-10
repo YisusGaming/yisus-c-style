@@ -25,6 +25,24 @@ String string_new(str const init) {
     return (String){.capacity = capacity, .length = len, .buf = ptr};
 }
 
+void string_pushc(String *str, char c) {
+    ensure_capacity(str, 2);
+
+    str->buf[str->length] = c; // push
+    str->length++;
+
+    str->buf[str->length] = '\0';
+}
+
+char string_pop(String *str) {
+    str->length--;
+    char c = str->buf[str->length];
+
+    str->buf[str->length] = '\0';
+
+    return c;
+}
+
 inline void string_drop(String *str) {
     str->capacity = 0;
     str->length = 0;

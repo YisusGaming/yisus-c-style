@@ -13,6 +13,10 @@ typedef struct {
     (string) { .capacity = 0, .length = 0, .buf = null }
 
 String string_new(str const init);
+
+void string_pushc(String *str, char c);
+char string_pop(String *str);
+
 void string_drop(String *str);
 
 #endif //! YISUS_STRING_H
