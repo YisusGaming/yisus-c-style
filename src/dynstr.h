@@ -7,12 +7,12 @@ typedef struct {
     size_t capacity;
     size_t length;
     str buf;
-} string;
+} String;
 
 #define string_null()                                                       \
     (string) { .capacity = 0, .length = 0, .buf = null }
 
-string string_new(str const init);
-void string_drop(string *str);
+String string_new(str const init);
+void string_drop(String *str);
 
 #endif //! YISUS_STRING_H
