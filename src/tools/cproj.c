@@ -4,6 +4,7 @@
  * cproj.c : CLI util that generates C projects.
  */
 
+#include "dynstr.h"
 #include "types.h"
 #include <direct.h>
 #include <stdio.h>
@@ -130,9 +131,21 @@ i32 main(i32 argc, char **argv)
 {
     if (argc < 2) {
         eprintf("cproj error: no metadata provided.\n");
-        eprintf("\nusage is: cproj.exe <project name> [path]\n");
+        eprintf("\nusage is: cproj.exe <project name>\n");
         return -1;
     }
 
+    char *proj_name = argv[1];
+
+    char _cwd[1024];
+    _getcwd(_cwd, 1024);
+
+    String cwd = string_new(_cwd);
+    string_pushc(&cwd, '\\');
+    string_pushstr(&cwd, proj_name);
+
+    // TODO: Create directory and placeholder files.
+
+    string_drop(&cwd);
     return 0;
 }
