@@ -64,7 +64,7 @@ char string_pop(String *string)
     return c;
 }
 
-inline void string_drop(String *string)
+void string_drop(String *string)
 {
     string->capacity = 0;
     string->length = 0;

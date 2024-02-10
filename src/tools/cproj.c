@@ -137,15 +137,36 @@ i32 main(i32 argc, char **argv)
 
     char *proj_name = argv[1];
 
-    char _cwd[1024];
-    _getcwd(_cwd, 1024);
+    char cwd[1024];
+    _getcwd(cwd, 1024);
 
-    String cwd = string_new(_cwd);
-    string_pushc(&cwd, '\\');
-    string_pushstr(&cwd, proj_name);
+    // FIXME: Doesn't work as expected...¯\_(ツ)_/¯
+    // The path is not properly being set.
+    // Why? Uh... Good question.
 
-    // TODO: Create directory and placeholder files.
+    String path = string_new(cwd);
+    string_pushc(&path, '\\');
+    string_pushstr(&path, proj_name);
+    string_pushc(&path, '\\');
 
-    string_drop(&cwd);
+    _chdir(cstr(path));
+
+    FILE *clangformat;
+
+    fopen_s(&clangformat, "./.clang_format", "w");
+    fprintf(clangformat, "%s", clang_format_source);
+    fclose(clangformat);
+
+    FILE *cmakelists;
+
+    fopen_s(&cmakelists, "./CMakeLists.txt", "w");
+    fprintf(cmakelists, "%s", cmakelists_source);
+    fclose(cmakelists);
+
+    _mkdir("./src");
+
+    printf("Done.\n");
+
+    string_drop(&path);
     return 0;
 }
