@@ -16,6 +16,8 @@ typedef struct
     str buf;
 } String;
 
+#define cstr(string) string.buf
+
 #define string_null()                                                          \
     (String)                                                                   \
     {                                                                          \
