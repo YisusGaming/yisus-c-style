@@ -17,16 +17,17 @@ typedef struct
 } String;
 
 #define string_null()                                                          \
-    (string)                                                                   \
+    (String)                                                                   \
     {                                                                          \
         .capacity = 0, .length = 0, .buf = null                                \
     }
 
 String string_new(str const init);
 
-void string_pushc(String *str, char c);
-char string_pop(String *str);
+void string_pushc(String *string, char c);
+void string_pushstr(String *string, str const s);
+char string_pop(String *string);
 
-void string_drop(String *str);
+void string_drop(String *string);
 
 #endif //! YISUS_STRING_H

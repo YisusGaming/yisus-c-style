@@ -5,6 +5,7 @@
  */
 
 #include "types.h"
+#include <direct.h>
 #include <stdio.h>
 
 #define eprintf(format, ...) fprintf(stderr, format, __VA_ARGS__)
@@ -132,8 +133,6 @@ i32 main(i32 argc, char **argv)
         eprintf("\nusage is: cproj.exe <project name> [path]\n");
         return -1;
     }
-
-    /// TODO: Create project.
 
     return 0;
 }

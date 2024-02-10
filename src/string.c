@@ -10,6 +10,10 @@
 
 void ensure_capacity(String *string, size_t plus_chars)
 {
+    if (string->capacity == 0) {
+        string->capacity = 1;
+    }
+
     size_t desired_capacity = string->length + plus_chars;
 
     if (string->capacity < desired_capacity) {
@@ -33,30 +37,37 @@ String string_new(str const init)
     return (String){ .capacity = capacity, .length = len, .buf = ptr };
 }
 
-void string_pushc(String *str, char c)
+void string_pushc(String *string, char c)
 {
-    ensure_capacity(str, 2);
+    ensure_capacity(string, 2);
 
-    str->buf[str->length] = c; // push
-    str->length++;
+    string->buf[string->length] = c; // push
+    string->length++;
 
-    str->buf[str->length] = '\0';
+    string->buf[string->length] = '\0';
 }
 
-char string_pop(String *str)
+void string_pushstr(String *string, str const s)
 {
-    str->length--;
-    char c = str->buf[str->length];
+    ensure_capacity(string, strlen(s) + 1);
 
-    str->buf[str->length] = '\0';
+    strcat_s(string->buf, string->capacity, s);
+}
+
+char string_pop(String *string)
+{
+    string->length--;
+    char c = string->buf[string->length];
+
+    string->buf[string->length] = '\0';
 
     return c;
 }
 
-inline void string_drop(String *str)
+inline void string_drop(String *string)
 {
-    str->capacity = 0;
-    str->length = 0;
+    string->capacity = 0;
+    string->length = 0;
 
-    free(str->buf);
+    free(string->buf);
 }
