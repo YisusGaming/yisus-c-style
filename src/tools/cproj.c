@@ -144,11 +144,14 @@ i32 main(i32 argc, char **argv)
     string_pushstr(&path, proj_name);
     string_pushc(&path, '\\');
 
+    printf("Creating '%s' at '%s'... ", proj_name, cstr(path));
+
+    _mkdir(cstr(path));
     _chdir(cstr(path));
 
     FILE *clangformat;
 
-    fopen_s(&clangformat, "./.clang_format", "w");
+    fopen_s(&clangformat, "./.clang-format", "w");
     fprintf(clangformat, "%s", clang_format_source);
     fclose(clangformat);
 
