@@ -1,5 +1,8 @@
 /*
  * Copyright (C) 2024 Jesús "YisusGaming" Blanco
+ * Released under the MIT License.
+ *
+ * See LICENSE for details.
  *
  * cproj.c : CLI util that generates C projects.
  */

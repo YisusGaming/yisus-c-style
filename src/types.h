@@ -1,5 +1,8 @@
 /*
  * Copyright (C) 2024 Jesús "YisusGaming" Blanco
+ * Released under the MIT License.
+ *
+ * See LICENSE for details.
  *
  * types.h : Type definitions for your code.
  */

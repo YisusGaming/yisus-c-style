@@ -1,5 +1,8 @@
 /*
  * Copyright (C) 2024 Jesús "YisusGaming" Blanco
+ * Released under the MIT License.
+ *
+ * See LICENSE for details.
  *
  * util.h : Useful utilities.
  */
