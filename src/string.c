@@ -49,9 +49,11 @@ void string_pushc(String *string, char c)
 
 void string_pushstr(String *string, str const s)
 {
-    ensure_capacity(string, strlen(s) + 1);
+    usize slen = strlen(s);
+    ensure_capacity(string, slen + 1);
 
     strcat_s(string->buf, string->capacity, s);
+    string->length += slen;
 }
 
 char string_pop(String *string)

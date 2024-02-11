@@ -139,10 +139,6 @@ i32 main(i32 argc, char **argv)
     char cwd[1024];
     _getcwd(cwd, 1024);
 
-    // FIXME: Doesn't work as expected...¯\_(ツ)_/¯
-    // The path is not properly being set.
-    // Why? Uh... Good question.
-
     String path = string_new(cwd);
     string_pushc(&path, '\\');
     string_pushstr(&path, proj_name);
