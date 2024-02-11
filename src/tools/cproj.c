@@ -124,7 +124,7 @@ const char clang_format_source[] =
     "Q_UNUSED\n  - QT_REQUIRE_VERSION\nTabWidth:        8\nUseTab:          "
     "Never\nVerilogBreakBetweenInstancePorts: "
     "true\nWhitespaceSensitiveMacros:\n  - BOOST_PP_STRINGIZE\n  - "
-    "CF_SWIFT_NAME\n  - NS_SWIFT_NAME\n  - PP_STRINGIZE\n  - STRINGIZE\n...\n";
+    "CF_SWIFT_NAME\n  - NS_SWIFT_NAME\n  - PP_STRINGIZE\n  - STRINGIZE\n...";
 
 const char cmakelists_source[] =
     "cmake_minimum_required(VERSION 3.10)\n\n# ...";
@@ -157,7 +157,7 @@ i32 main(i32 argc, str *argv)
     FILE *clangformat;
 
     fopen_s(&clangformat, "./.clang-format", "w");
-    fprintf(clangformat, "%s", clang_format_source);
+    fprintf(clangformat, "%s\n\n", clang_format_source);
     fclose(clangformat);
 
     FILE *cmakelists;
