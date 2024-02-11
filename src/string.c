@@ -75,4 +75,5 @@ void string_drop(String *string)
     string->length = 0;
 
     free(string->buf);
+    string->buf = nullptr;
 }

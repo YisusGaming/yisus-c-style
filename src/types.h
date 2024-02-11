@@ -31,6 +31,7 @@ typedef size_t usize;
 typedef char *str;
 
 #define null 0
+#define nullptr ((void *)0)
 #define fnptr(fn, ...) void (*fn)(__VA_ARGS__)
 
 #endif // ! TYPES_H
