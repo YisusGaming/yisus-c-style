@@ -16,6 +16,11 @@
         eprintf(msg, __VA_ARGS__);                                             \
         return with;                                                           \
     }
+#define abortifnull(code, check, msg, ...)                                     \
+    if (check == null) {                                                       \
+        eprintf(msg, __VA_ARGS__);                                             \
+        exit(code);                                                            \
+    }
 #define retifnull(check, msg, ...)                                             \
     if (check == null) {                                                       \
         eprintf(msg, __VA_ARGS__);                                             \
