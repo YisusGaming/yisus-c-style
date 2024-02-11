@@ -129,7 +129,9 @@ const char clang_format_source[] =
 const char cmakelists_source[] =
     "cmake_minimum_required(VERSION 3.10)\n\n# ...";
 
-i32 main(i32 argc, char **argv)
+const char gitignore_source[] = "# folders\nbuild/\n.cache/\n";
+
+i32 main(i32 argc, str *argv)
 {
     if (argc < 2) {
         eprintf("cproj error: no metadata provided.\n");
@@ -137,7 +139,7 @@ i32 main(i32 argc, char **argv)
         return -1;
     }
 
-    char *proj_name = argv[1];
+    str proj_name = argv[1];
 
     char cwd[1024];
     _getcwd(cwd, 1024);
@@ -163,6 +165,12 @@ i32 main(i32 argc, char **argv)
     fopen_s(&cmakelists, "./CMakeLists.txt", "w");
     fprintf(cmakelists, "%s", cmakelists_source);
     fclose(cmakelists);
+
+    FILE *gitignore;
+
+    fopen_s(&gitignore, "./.gitignore", "w");
+    fprintf(gitignore, "%s", gitignore_source);
+    fclose(gitignore);
 
     _mkdir("./src");
 
