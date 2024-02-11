@@ -11,8 +11,8 @@
 
 typedef struct
 {
-    size_t capacity;
-    size_t length;
+    usize capacity;
+    usize length;
     str buf;
 } String;
 

@@ -6,10 +6,9 @@
 
 #include "dynstr.h"
 #include "types.h"
+#include "util.h"
 #include <direct.h>
 #include <stdio.h>
-
-#define eprintf(format, ...) fprintf(stderr, format, __VA_ARGS__)
 
 const char clang_format_source[] =
     "---\nLanguage:        Cpp\n# Yisus Style\n# BasedOnStyle:  "

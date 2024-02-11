@@ -8,13 +8,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-void ensure_capacity(String *string, size_t plus_chars)
+void ensure_capacity(String *string, usize plus_chars)
 {
     if (string->capacity == 0) {
         string->capacity = 1;
     }
 
-    size_t desired_capacity = string->length + plus_chars;
+    usize desired_capacity = string->length + plus_chars;
 
     if (string->capacity < desired_capacity) {
         string->capacity *= 2;
@@ -28,8 +28,8 @@ void ensure_capacity(String *string, size_t plus_chars)
 
 String string_new(str const init)
 {
-    size_t len = strlen(init);
-    size_t capacity = len + 1;
+    usize len = strlen(init);
+    usize capacity = len + 1;
 
     str ptr = malloc(sizeof(char) * capacity);
     memcpy(ptr, init, capacity);
