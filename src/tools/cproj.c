@@ -22,7 +22,7 @@ const char clang_format_source[] =
     "true\nAlignConsecutiveBitFields:\n  Enabled:         false\n  "
     "AcrossEmptyLines: false\n  AcrossComments:  false\n  AlignCompound:   "
     "false\n  PadOperators:    false\nAlignConsecutiveDeclarations:\n  "
-    "Enabled:         false\n  AcrossEmptyLines: false\n  AcrossComments:  "
+    "Enabled:         true\n  AcrossEmptyLines: false\n  AcrossComments:  "
     "false\n  AlignCompound:   false\n  PadOperators:    "
     "false\nAlignConsecutiveMacros:\n  Enabled:         false\n  "
     "AcrossEmptyLines: false\n  AcrossComments:  false\n  AlignCompound:   "

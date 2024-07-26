@@ -17,7 +17,7 @@ typedef struct
 {
     usize capacity;
     usize length;
-    str buf;
+    str   buf;
 } String;
 
 #define cstr(string) string.buf
@@ -25,7 +25,7 @@ typedef struct
 #define string_null()                                                          \
     (String)                                                                   \
     {                                                                          \
-        .capacity = 0, .length = 0, .buf = null                                \
+        .capacity = 0, .length = 0, .buf = nullptr                             \
     }
 
 /// Creates a new String from `init`.
