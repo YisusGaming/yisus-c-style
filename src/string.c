@@ -29,12 +29,12 @@ void ensure_capacity(String *string, usize plus_chars)
     }
 }
 
-String string_new(str const init)
+String string_new(str init)
 {
     usize len = strlen(init);
     usize capacity = len + 1;
 
-    str ptr = malloc(sizeof(char) * capacity);
+    ncstr ptr = malloc(sizeof(char) * capacity);
     memcpy(ptr, init, capacity);
 
     return (String){ .capacity = capacity, .length = len, .buf = ptr };
@@ -50,7 +50,7 @@ void string_pushc(String *string, char c)
     string->buf[string->length] = '\0';
 }
 
-void string_pushstr(String *string, str const s)
+void string_pushstr(String *string, str s)
 {
     usize slen = strlen(s);
     ensure_capacity(string, slen + 1);

@@ -28,7 +28,8 @@ typedef double f64;
 
 typedef size_t usize;
 
-typedef char *str;
+typedef char const *str;
+typedef char       *ncstr;
 
 #define null 0
 #define nullptr ((void *)0)

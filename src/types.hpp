@@ -26,7 +26,8 @@ typedef double float64;
 
 typedef size_t usize;
 
-typedef char *str;
+typedef char const *str;
+typedef char       *ncstr;
 
 #define null 0
 #define fnptr(fn, ...) (*fn)(__VA_ARGS__)

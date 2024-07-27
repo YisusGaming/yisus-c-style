@@ -17,7 +17,7 @@ typedef struct
 {
     usize capacity;
     usize length;
-    str   buf;
+    ncstr buf;
 } String;
 
 #define cstr(string) string.buf
