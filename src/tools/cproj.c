@@ -95,7 +95,7 @@ const char clang_format_source[] =
     "10\nPenaltyExcessCharacter: 1000000\nPenaltyIndentedWhitespace: "
     "0\nPenaltyReturnTypeOnItsOwnLine: 200\nPointerAlignment: "
     "Right\nPPIndentWidth:   -1\nQualifierAlignment: "
-    "Leave\nReferenceAlignment: Pointer\nReflowComments:  "
+    "Leave\nReferenceAlignment: Left\nReflowComments:  "
     "true\nRemoveBracesLLVM: false\nRemoveParentheses: Leave\nRemoveSemicolon: "
     "false\nRequiresClausePosition: OwnLine\nRequiresExpressionIndentation: "
     "OuterScope\nSeparateDefinitionBlocks: Leave\nShortNamespaceLines: "
