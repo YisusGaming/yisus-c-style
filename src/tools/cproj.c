@@ -10,7 +10,23 @@
 #include "dynstr.h"
 #include "types.h"
 #include "util.h"
+#if defined(_WIN32) || defined(_WIN64)
+
 #include <direct.h>
+#define getcwd(a, b) _getcwd(a, b)
+#define mkdir(a, b) _mkdir(a)
+#define chdir(a) _chdir(a)
+#define fopen fopen_s
+
+#else
+
+#include <dirent.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
+#define fopen(a, b, c) (*(a)) = fopen(b, c)
+
+#endif
 #include <stdio.h>
 
 const char clang_format_source[] =
@@ -142,37 +158,43 @@ i32 main(i32 argc, str *argv)
     str proj_name = argv[1];
 
     char cwd[1024];
-    _getcwd(cwd, 1024);
+    getcwd(cwd, 1024);
+
+#if defined(_WIN32) || defined(_WIN64)
+#define PATH_SEPARATOR '\\'
+#else
+#define PATH_SEPARATOR '/'
+#endif
 
     String path = string_new(cwd);
-    string_pushc(&path, '\\');
+    string_pushc(&path, PATH_SEPARATOR);
     string_pushstr(&path, proj_name);
-    string_pushc(&path, '\\');
+    string_pushc(&path, PATH_SEPARATOR);
 
     printf("Creating '%s' at '%s'... ", proj_name, cstr(path));
+    mode_t const f_Permissions = 0755;
 
-    _mkdir(cstr(path));
-    _chdir(cstr(path));
+    mkdir(cstr(path), f_Permissions);
+    chdir(cstr(path));
 
     FILE *clangformat;
-
-    fopen_s(&clangformat, "./.clang-format", "w");
+    fopen(&clangformat, "./.clang-format", "w");
     fprintf(clangformat, "%s\n\n", clang_format_source);
     fclose(clangformat);
 
     FILE *cmakelists;
 
-    fopen_s(&cmakelists, "./CMakeLists.txt", "w");
+    fopen(&cmakelists, "./CMakeLists.txt", "w");
     fprintf(cmakelists, "%s", cmakelists_source);
     fclose(cmakelists);
 
     FILE *gitignore;
 
-    fopen_s(&gitignore, "./.gitignore", "w");
+    fopen(&gitignore, "./.gitignore", "w");
     fprintf(gitignore, "%s", gitignore_source);
     fclose(gitignore);
 
-    _mkdir("./src");
+    mkdir("./src", f_Permissions);
 
     printf("Done.\n");
 
