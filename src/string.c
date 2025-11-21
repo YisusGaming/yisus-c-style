@@ -55,7 +55,12 @@ void string_pushstr(String *string, str const s)
     usize slen = strlen(s);
     ensure_capacity(string, slen + 1);
 
+#if defined(_WIN32) || defined(_WIN64)
     strcat_s(string->buf, string->capacity, s);
+#else
+    strcat(string->buf,  s);
+#endif
+
     string->length += slen;
 }
 
