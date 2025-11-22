@@ -8,6 +8,8 @@
 In short, it's a simple library that provides some utilities like macros and functions.
 More over, it's the way I use to write and format my C code.
 
+2025 edit: So, this thing is very old. I still keep it around because I usually use cproj. Yeeep...
+
 ### Project Features
 * A Dynamic String implementation.
 * Custom type definitions.

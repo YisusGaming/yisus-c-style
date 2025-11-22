@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Jesús "YisusGaming" Blanco
+ * Copyright (C) 2025 Jesús "Mika" Blanco
  * Released under the MIT License.
  *
  * See LICENSE for details.
