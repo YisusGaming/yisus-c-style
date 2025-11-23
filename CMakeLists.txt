@@ -9,4 +9,10 @@ add_subdirectory(src/tools) # CLI tools + installs
 if(BUILD_TESTS)
     message("-- Building project tests")
     add_subdirectory(tests)
+
+    add_custom_target(
+        testing
+        COMMAND $<TARGET_FILE:t_string>
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    )
 endif()
