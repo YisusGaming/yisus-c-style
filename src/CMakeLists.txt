@@ -1,4 +1,4 @@
-set(library_includes types.h types.hpp dynstr.h util.h)
+set(library_includes types.h dynstr.h util.h)
 set(library_sources string.c)
 
 add_library(yisus STATIC ${library_sources})
