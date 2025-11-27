@@ -172,7 +172,9 @@ i32 main(i32 argc, str *argv)
     string_pushc(&path, PATH_SEPARATOR);
 
     printf("Creating '%s' at '%s'... ", proj_name, cstr(path));
+#if !defined(_WIN32)
     mode_t const f_Permissions = 0755;
+#endif
 
     mkdir(cstr(path), f_Permissions);
     chdir(cstr(path));
