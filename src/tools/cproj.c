@@ -80,7 +80,7 @@ const char clang_format_source[] =
     "false\nDisableFormat:   false\nEmptyLineAfterAccessModifier: "
     "Never\nEmptyLineBeforeAccessModifier: "
     "LogicalBlock\nExperimentalAutoDetectBinPacking: "
-    "false\nFixNamespaceComments: false\nForEachMacros:\n  - foreach\n  - "
+    "false\nFixNamespaceComments: true\nForEachMacros:\n  - foreach\n  - "
     "Q_FOREACH\n  - BOOST_FOREACH\nIfMacros:\n  - KJ_IF_MAYBE\nIncludeBlocks:  "
     " Preserve\nIncludeCategories:\n  - Regex:           "
     "'^\"(llvm|llvm-c|clang|clang-c)/'\n    Priority:        2\n    "
